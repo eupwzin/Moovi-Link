@@ -1,4 +1,4 @@
-name: Notify app update
+﻿name: Notify app update
 
 on:
   release:
@@ -6,6 +6,7 @@ on:
 
 jobs:
   notify:
+    if: ${{ github.event.release.tag_name != 'V1.4.7' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -17,3 +18,4 @@ jobs:
           RELEASE_TAG: ${{ github.event.release.tag_name }}
           RELEASE_BODY: ${{ github.event.release.body }}
         run: node scripts/send_app_update.js
+
