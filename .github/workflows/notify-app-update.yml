@@ -6,7 +6,6 @@ on:
 
 jobs:
   notify:
-    if: ${{ github.event.release.tag_name != 'V1.4.10' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
